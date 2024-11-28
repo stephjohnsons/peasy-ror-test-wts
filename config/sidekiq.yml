@@ -1,0 +1,8 @@
+:concurrency: 5
+:queues:
+  - default
+
+:schedule:
+  fetch_product_data:
+    cron: "0 * * * *" # populate table every hour
+    class: FetchProductWorker
