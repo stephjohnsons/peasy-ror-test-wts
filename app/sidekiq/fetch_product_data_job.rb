@@ -4,12 +4,8 @@ require 'httparty'
 class FetchProductDataJob
   include Sidekiq::Job
 
-  def perform(number_of_products = nil)
-    if number_of_products.nil?
-      url = "https://fakestoreapi.com/products"
-    else
-      url = "https://fakestoreapi.com/products/#{number_of_products}"
-    end
+  def perform
+    url = "https://fakestoreapi.com/products"
 
     response = HTTParty.get(url)
 
